@@ -1,0 +1,512 @@
+@import "./_base";
+@import "./font";
+@import "./public";
+
+body {
+  // for center box element
+  @include d-grid;
+  margin: 3rem 0rem;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/background.jpg") center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .btn-md {
+    @include button-size(
+      2rem,
+      2rem,
+      1.6rem,
+      0rem,
+      1rem,
+      $color-base,
+      transparent
+    );
+    border: 1px solid $color-base;
+    @include box-shadow();
+    position: relative;
+    overflow: hidden;
+    transition: color 0.5s;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: $color-base;
+      height: 150px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+    &::before {
+      top: 100%;
+      left: 100%;
+      transition: all 0.5s;
+    }
+
+    &:hover::before {
+      top: -45px;
+      left: -45px;
+      width: 300px;
+      height: 300px;
+    }
+
+    //     &::active:before {
+    //       background: #3ca30c;
+    //       transition: background 0s;
+    //     }
+  }
+  .btn-lg {
+    @include button-size(
+      0.6rem,
+      9rem,
+      1.6rem,
+      0rem,
+      1rem,
+      $color-base,
+      transparent
+    );
+    border: 1px solid $color-base;
+    @include box-shadow();
+    position: relative;
+    overflow: hidden;
+    transition: color 0.5s;
+    z-index: 1;
+  }
+
+  .text-500 {
+    @include text-style(1.4rem, 600, $color-base);
+  }
+  .text-small {
+    @include text-style(1.6rem, 500, $color-base);
+  }
+
+  .effect--bk {
+    padding: 0.2rem 1rem;
+    @include border-radius(10px);
+    background-color: $color-background;
+  }
+
+  main {
+    // set width and height for box
+    // position and sizing
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    @include box-shadow;
+    @include border-radius(10px);
+    width: 780px;
+    height: auto;
+    // factor title
+    .factor--title {
+      // position
+      @include d-flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid $text-default;
+      padding: 20px;
+
+      // position
+      // style logo website
+      &__logo {
+        margin: 0rem 1rem;
+      }
+      // position and sizing
+
+      &__link {
+        // style title next on logo
+        &__text {
+          //typographi & position and sizing
+          text-align: center;
+          @include text-style(2rem, 0px, $color-base);
+        }
+      }
+    }
+
+    // get Inforation secion
+    .get--Information {
+      // position && sizeing
+      position: relative;
+      overflow: hidden;
+      padding: 3rem;
+      background-color: #bd371f12;
+      @include border-radius(10px);
+
+      &--box {
+        // position && sizeing
+        @include d-flex;
+        gap: 15px;
+
+        flex-flow: row wrap;
+        &__link {
+          // position && sizeing
+          flex-grow: 1;
+          // typographi
+          text-align: center;
+          font-weight: 500;
+        }
+      }
+    }
+    /*   &::before {
+     // circle for Visual view
+     content: "";
+     position: absolute;
+     width: 4rem;
+     height: 4rem;
+     border: 4rem solid rgba(104, 123, 254, 0.24);
+     padding: 4rem;
+     z-index: -2;
+     border-radius: 50%;
+     bottom: -55px;
+     right: -20px;
+     }
+     &::after {
+     // circle for Visual view
+     content: "";
+     position: absolute;
+     width: 2rem;
+     height: 2rem;
+     border: 2rem solid rgba(104, 123, 254, 0.64);
+     padding: 3rem;
+     z-index: -1;
+     border-radius: 50%;
+     bottom: -30px;
+     right: 4px;
+     } */
+  }
+
+  // base information
+  .base--info {
+    // position
+    @include d-flex;
+
+    &--right {
+      // position and sizing
+      @include d-flex;
+      flex: auto;
+
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .issue--date {
+        @include d-flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        &__title {
+          @include text-style(17px, 0px, $color-base);
+          font-weight: 500;
+        }
+        &__date {
+          @include text-style(13px, 500, $color-base);
+          padding: 0.3rem 0.5rem;
+          @include border-radius(10px);
+          background-color: $color-background;
+          max-width: 100%;
+          text-align: center;
+width: 80px;
+overflow: hidden;
+        }
+      }
+    }
+
+    &--left {
+      // position and sizing
+      @include d-flex;
+      flex: 70%;
+      padding: 0px 20px 0px 0px;
+
+      flex-direction: column;
+
+      & > * {
+        // position and sizing
+
+        @include d-flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0.5rem 0rem;
+        width: fit-content;
+      }
+
+      .section_two {
+        // position and sizing
+
+        @include d-flex;
+        flex-flow: row wrap;
+        & > * {
+          flex: 50%;
+          margin-bottom: 1.6rem;
+          align-items: center;
+        }
+      }
+      // separator for bettwen content
+      #separator {
+        width: 100%;
+        background: $color-base;
+        height: 2px;
+        @include border-radius();
+        margin: 15px 0px;
+      }
+    }
+  }
+
+  .information--customer {
+    @include d-flex;
+
+    &--setOne {
+      // position and sizing
+      display: flex;
+      flex: auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .information--form {
+        @include button-size(
+          1rem,
+          2rem,
+          1.6rem,
+          0rem,
+          1rem,
+          white,
+          $color-secondary
+        );
+        @include d-flex;
+        margin-bottom: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid transparent;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &__title {
+          @include text-style(1.6rem, 500, $color-base);
+
+          color: white;
+          @include d-flex;
+          height: 100%;
+          align-items: center;
+        }
+        &__input {
+          width: 60%;
+          background-color: $color-secondary;
+          @include text-style(1.6rem, 500, white);
+          direction: ltr;
+        }
+      }
+    }
+    &--setTwo {
+      // spacing
+      // position and sizing
+      @include d-flex;
+      flex: 70%;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0px 20px 0px 0px;
+      .information--form {
+          @include button-size(
+               1rem,
+               2rem,
+               1.6rem,
+               0rem,
+               1rem,
+               white,
+               $color-secondary
+             );
+             @include d-flex; 
+             border: 1px solid transparent;
+        justify-content: space-between;
+        width: 100%;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &__title {
+          @include text-style(1.6rem, 500, $color-base);
+
+          color: white;
+          @include d-flex;
+          height: 100%;
+          align-items: center;
+        }
+        &__input {
+          width: 60%;
+          background-color: $color-secondary;
+          direction: ltr;
+          @include text-style(1.6rem, 500, white);
+        }
+      }
+    }
+  }
+  .information--customer {
+    @include d-flex;
+
+    &--setThere {
+      // spacing
+      // position and sizing
+      @include d-flex;
+      flex: 100%;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .information--form {
+          @include button-size(
+               1rem,
+               2rem,
+               1.6rem,
+               0rem,
+               1rem,
+               white,
+               $color-secondary
+             );
+             @include d-flex; 
+             border: 1px solid transparent;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        &__title {
+          @include text-style(1.6rem, 500, $color-base);
+
+          color: white;
+          @include d-flex;
+          height: 100%;
+          align-items: center;
+        }
+        &__input {
+          width: 60%;
+          background-color: $color-secondary;
+          direction: ltr;
+          @include text-style(1.6rem, 500, white);
+        }
+      }
+    }
+  }
+
+  // table for Bill customer
+  .print--table {
+    .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0.2em;
+
+        thead {
+          display: table-header-group;
+          vertical-align: middle;
+          tr {
+            th {
+              background: $color-secondary;
+              @include text-style(16px, 400, white);
+              padding: 1rem;
+              text-align: center;
+              white-space: nowrap;
+              &:first-child {
+                border-top-right-radius: 15px;
+              }
+              &:last-child {
+                border-top-left-radius: 15px;
+              }
+            }
+          }
+        }
+
+        tbody {
+          background-color: #fff3dc;
+          tr {
+            display: table-row;
+            td {
+              padding: 1rem;
+              text-align: right;
+              @include text-style(16px, 500, $color-base);
+              &:last-child {
+                text-align: center;
+              }
+            }
+          }
+          .remove img{
+               @include transition(transform 700ms ease-in-out);
+              &:hover{ transform: rotate(360deg);}
+          }
+        }
+
+        tfoot {
+          display: table-footer-group;
+          tr {
+            &:first-child {
+              background-color: #fff3dc;
+            }
+
+            &:nth-child(2) {
+              background-color: $color-secondary;
+              color: white;
+
+              td {
+                color: white;
+              }
+            }
+
+            td {
+              padding: 1rem;
+              text-align: right;
+              @include text-style(16px, 500, $color-base);
+              &:first-child {
+                border-bottom-right-radius: 15px;
+              }
+              &:last-child {
+                border-bottom-left-radius: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // button send
+  .button--manage {
+    @include d-flex;
+    justify-content: center;
+    & > * {
+      margin: 0rem 1.5rem;
+    }
+    &__print {
+      @include d-flex;
+      align-items: center;
+      background-color: #5cb85c;
+      border: 1px solid transparent;
+      color: white;
+      @include transition(all 500ms ease-in-out);
+
+      &:hover {
+        background-color: transparent;
+        border: 1px dashed #5cb85c;
+        color: $text-primary;
+      }
+    }
+    &__pdf {
+      @include d-flex;
+      align-items: center;
+      padding: 0.6rem 2.3rem;
+      background-color: #e2e2e2;
+      border: 1px solid rgb(206, 206, 206);
+      color: $text-primary;
+
+      @include transition(all 500ms ease-in-out);
+
+      &:hover {
+        background-color: transparent;
+        border: 1px dashed #e2e2e2;
+        color: $text-primary;
+      }
+    }
+  }
+}
